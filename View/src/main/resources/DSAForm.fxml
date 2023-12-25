@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="dsaForm" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.DSAController">
+   <children>
+   
+   
+      <GridPane alignment="TOP_CENTER" layoutY="26.0" prefHeight="574.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+      <children>
+            <TitledPane collapsible="false" prefHeight="245.0" prefWidth="600.0" text="Keys / Parameters" GridPane.rowIndex="1">
+               <content>
+                  <VBox prefHeight="237.0" prefWidth="598.0">
+                     <children>
+                        <HBox prefHeight="18.0" prefWidth="579.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="12.0" text="x">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="privateKeyField" prefHeight="23.0" prefWidth="561.0" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="18.0" prefWidth="579.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="12.0" text="y">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="publicKeyField" prefHeight="23.0" prefWidth="561.0" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="18.0" prefWidth="579.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="12.0" text="p">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="pField" prefHeight="23.0" prefWidth="561.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="18.0" prefWidth="579.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="12.0" text="q">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="qField" prefHeight="23.0" prefWidth="561.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="18.0" prefWidth="579.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="12.0" text="g">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="gField" prefHeight="23.0" prefWidth="561.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="579.0">
+                           <children>
+                              <Button fx:id="generateButton" mnemonicParsing="false" onAction="#generateKeys" text="Generate">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Load">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Save" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+            <TitledPane collapsible="false" prefHeight="300.0" prefWidth="600.0" text="Sign / Verify" GridPane.rowIndex="2">
+               <content>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="255.0" prefWidth="200.0">
+                           <children>
+                              <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="196.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#loadMessageFromFile" text="Load">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#saveMessageToFile" text="Save" />
+                                 </children>
+                              </HBox>
+                              <TextArea fx:id="messageField" prefHeight="222.0" prefWidth="196.0" wrapText="true" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="255.0" prefWidth="192.0">
+                           <children>
+                              <Button fx:id="signButton" mnemonicParsing="false" onAction="#sign" text="Sign →">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="verifyButton" mnemonicParsing="false" onAction="#verify" text="← Verify" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="255.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="256.0" prefWidth="196.0">
+                                 <children>
+                                    <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="196.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#loadSignatureFromFile" text="Load">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#saveSignatureToFile" text="Save" />
+                                       </children>
+                                    </HBox>
+                                    <TextArea fx:id="signatureField" prefHeight="221.0" prefWidth="196.0" wrapText="true" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </content>
+            </TitledPane>
+      </children>
+   
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="274.59999694824216" minHeight="0.0" prefHeight="30.99999084472656" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="503.2" minHeight="10.0" prefHeight="246.40000610351564" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="337.8000244140625" minHeight="10.0" prefHeight="297.5999938964844" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+       <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutY="11.0" prefHeight="30.0" prefWidth="600.0" text="DSA" textAlignment="CENTER" textFill="#0d0d0d">
+           <font>
+               <Font size="25.0" />
+           </font>
+       </Label>
+   </children>
+</AnchorPane>
